@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System;
+
+class Personaje
+{
+    protected string Nombre;
+
+    public Personaje(string nombre)
+    {
+        Nombre = nombre;
+    }
+}
