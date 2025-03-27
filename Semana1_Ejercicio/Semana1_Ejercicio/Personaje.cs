@@ -2,31 +2,27 @@
 
 class Personaje
 {
-    private string nombre;
-    private int energia;
-
-    public string Nombre { get { return nombre; } }
-    public int Energia { get { return energia; } }
+    public string Nombre { get; }
+    public int Energia { get; private set; }
 
     public Personaje(string nombre, int energia)
     {
-        this.nombre = nombre;
-        this.energia = energia;
+        Nombre = nombre;
+        Energia = energia;
     }
 
     public void MostrarEstado()
     {
-        Console.WriteLine($"Nombre: {Nombre}, Energía: {Energia}");
+        Console.WriteLine($"{Nombre} tiene {Energia} de energía.");
     }
 }
-
 class Guerrero : Personaje
 {
     public Guerrero(string nombre) : base(nombre, 100) { }
 
-    public void Atacar()
+    public void Accion(string objetivo)
     {
-        Console.WriteLine($"{Nombre} ataca con su espada!");
+        Console.WriteLine($"{Nombre} ataca a {objetivo} con su espada.");
     }
 }
 
@@ -34,8 +30,9 @@ class Mago : Personaje
 {
     public Mago(string nombre) : base(nombre, 80) { }
 
-    public void LanzarHechizo()
+    public void Accion(string objetivo)
     {
-        Console.WriteLine($"{Nombre} lanza un hechizo de fuego!");
+        Console.WriteLine($"{Nombre} lanza un hechizo a {objetivo}.");
     }
 }
+
