@@ -1,6 +1,6 @@
 ﻿namespace Estructuras
 {
-    public abstract class Estructura
+    public abstract class Estructuras
     {
         public string Nombre;
         public int TurnosRestantes;
@@ -8,7 +8,13 @@
         public bool Construida => TurnosRestantes <= 0;
     }
 
-    public class Granja : Estructura
+
+    public interface IEstructuraConVida
+    {
+        int Vida { get; set; }
+    }
+
+    public class Granja : Estructuras
     {
         public Granja()
         {
@@ -18,9 +24,9 @@
         }
     }
 
-    public class Torre : Estructura
+    public class Torre : Estructuras, IEstructuraConVida
     {
-        public int Vida = 100;
+        public int Vida { get; set; }
         public int Daño = 20;
 
         public Torre()
@@ -28,10 +34,11 @@
             Nombre = "Torre";
             TurnosRestantes = 10;
             Costo = 100;
+            Vida = 100; 
         }
     }
 
-    public class Casa : Estructura
+    public class Casa : Estructuras
     {
         public bool Ocupada = false;
 
