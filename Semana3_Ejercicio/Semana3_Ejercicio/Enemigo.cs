@@ -6,7 +6,7 @@ using Unidades;
 
 public class Enemigo
 {
-    public List<Unidades.Unidades> Unidades = new();
+    public List<Unidades.Unidades> Uni = new();
     private List<int> primos = new() { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 };
     private List<int> fibonacci = new() { 0, 1, 1, 2, 3, 5, 8, 13 };
     private int fibonacciIndex = 0;
@@ -19,11 +19,11 @@ public class Enemigo
         {
             int cantidad = fibonacci[fibonacciIndex];
             for (int i = 0; i < cantidad; i++)
-                Unidades.Add(new Soldado());
+                Uni.Add(new Soldado());
             fibonacciIndex = Math.Min(fibonacciIndex + 1, fibonacci.Count - 1);
         }
 
-        foreach (var enemigo in Unidades.ToList())
+        foreach (var enemigo in Uni.ToList())
         {
            
             var objetivo = jugador.Unidades.FirstOrDefault();
@@ -41,38 +41,14 @@ public class Enemigo
             }
 
            
-            if (objetivo is Unidades u)
+            if (objetivo is Unidades.Unidades)
             {
                 u.Vida -= 10;
                 if (u.Vida <= 0)
                     jugador.Unidades.Remove(u);
             }
            
-            else if (objetivo is Torre t)
-            {
-                t.Vida -= 10;
-                if (t.Vida <= 0)
-                {
-                    jugador.Estructuras.Remove(t);  
-                }
-            }
-            
-            else if (objetivo is Estructuras.Estructuras e)
-            {
-               
-                if (e is IEstructuraConVida estructuraConVida)
-                {
-                    estructuraConVida.Vida -= 10;
-                    if (estructuraConVida.Vida <= 0)
-                    {
-                        jugador.Estructuras.Remove(e);
-                    }
-                }
-                else
-                {
-                    jugador.Estructuras.Remove(e);  
-                }
-            }
+
         }
     }
 }
