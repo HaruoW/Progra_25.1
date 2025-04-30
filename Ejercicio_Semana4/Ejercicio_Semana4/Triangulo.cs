@@ -1,12 +1,11 @@
-﻿public class Triangulo : Figura
+﻿class Triangulo : Figura
 {
     public double Base { get; set; }
     public double Altura { get; set; }
 
-    public Triangulo(double @base, double altura)
-        : base("Triángulo")
+    public Triangulo(double baseT, double altura) : base("Triángulo")
     {
-        Base = @base;
+        Base = baseT;
         Altura = altura;
     }
 

@@ -1,11 +1,8 @@
-﻿using System;
-
-public class Circulo : Figura
+﻿class Circulo : Figura
 {
     public double Radio { get; set; }
 
-    public Circulo(double radio)
-        : base("Círculo")
+    public Circulo(double radio) : base("Círculo")
     {
         Radio = radio;
     }
